@@ -1,21 +1,44 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 
 
 import { IonButton, IonIcon, } from '@ionic/react';
-import { star } from 'ionicons/icons';
+import { render } from '@testing-library/react';
+import Apipage from './Apipage'
 
 
 const Home: React.FC = () => {
-  return (
-    <IonPage className="App">
-     <div className="ButtonBlock">
-       <IonButton color="secondary" className="mainAPiButton" size="small" >Secondary</IonButton>
-     </div>
-    </IonPage>
-  );
+
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+   if(open){
+    console.log('yes')
+   }
+ });
+
+
+   if(open){
+      return <Apipage></Apipage>
+   } else  return (
+   <IonPage className="App">
+   <div className="ButtonBlock">
+     <IonButton color="secondary" className="mainAPiButton" size="small" onClick={() => {setOpen(true)}} >Secondary</IonButton>
+   </div>
+  </IonPage>
+)
+ 
+
+  // return (
+
+  //   <IonPage className="App">
+  //    <div className="ButtonBlock">
+  //      <IonButton color="secondary" className="mainAPiButton" size="small" onClick={() => {setOpen(true)}} >Secondary</IonButton>
+       
+  //    </div>
+  //   </IonPage>
+  // );
 };
 
 export default Home;
