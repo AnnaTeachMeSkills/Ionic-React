@@ -1,22 +1,28 @@
-import React from 'react';
+import React, { createElement } from 'react';
 import { IonList, IonItem, IonLabel, IonInput,IonPage, IonToggle, IonRadio, IonCheckbox, IonItemSliding, IonItemOption, IonItemOptions, IonContent } from '@ionic/react';
 import { useEffect,useState } from 'react';
+import { render } from '@testing-library/react';
 
 const Apipage: React.FC = () => {
+    async function getData  ()  {
+        let response = await fetch('https://anapioficeandfire.com/api/characters/1');
+        console.log(response);
+        let result= await response.json()
+        console.log(result);
+        for(let el in result){
+            console.log(el)
+        }
+        return await result;
+        
+    } 
 
+    getData()
 
-
-    useEffect(() => {
-        fetch('https://anapioficeandfire.com/api/characters')
-        .then(response => response.json())
-        .then(data => console.log(data));
-     });
-    
       return (
         <IonPage>
             <IonList>
                 <IonItem>
-                    <IonLabel>Pokémon Yellow</IonLabel>
+                    <IonLabel>sdf</IonLabel>
                 </IonItem>
                 <IonItem>
                     <IonLabel>Mega Man X</IonLabel>

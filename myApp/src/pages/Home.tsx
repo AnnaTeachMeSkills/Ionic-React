@@ -10,35 +10,10 @@ import Apipage from './Apipage'
 
 const Home: React.FC = () => {
 
-  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-   if(open){
-    console.log('yes')
-   }
- });
-
-
-   if(open){
-      return <Apipage></Apipage>
-   } else  return (
-   <IonPage className="App">
-   <div className="ButtonBlock">
-     <IonButton color="secondary" className="mainAPiButton" size="small" onClick={() => {setOpen(true)}} >Secondary</IonButton>
-   </div>
-  </IonPage>
-)
- 
-
-  // return (
-
-  //   <IonPage className="App">
-  //    <div className="ButtonBlock">
-  //      <IonButton color="secondary" className="mainAPiButton" size="small" onClick={() => {setOpen(true)}} >Secondary</IonButton>
-       
-  //    </div>
-  //   </IonPage>
-  // );
+   return (
+  <div></div>
+   );
 };
 
 export default Home;

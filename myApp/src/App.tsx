@@ -1,8 +1,9 @@
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, Router,Switch,Link,BrowserRouter } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import Apipage from './pages/Apipage';
+import './App.css'; 
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,20 +24,35 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home" component = {Home}>
-          {/* <Redirect to="/Apipage"></Redirect> */}
-          <Home />
-        </Route>
-        <Route exact path="/Apipage" component = {Apipage}>
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
 
-);
+const App: React.FC = () => {
+
+return(
+  
+  <div className="App">
+     <BrowserRouter >
+          <Route  exact path="/" component={Home} />
+          <Route exact path="/Apipage" component={Apipage} />
+          <Link className="main_link" to="/Apipage">Fetch API</Link>
+      </BrowserRouter>
+  </div>
+)
+
+  // <IonApp>
+  //   <IonReactRouter>
+  //     <IonRouterOutlet>
+  //       <Route exact path="/" component = {Home}>
+  //         {/* <Redirect to="/Apipage"></Redirect> */}
+  //         <Home />
+  //       </Route>
+  //       <Route exact path="/home" component = {Home}>
+  //       </Route>
+  //       <Route exact path="/Apipage" component = {Apipage}>
+  //       </Route>
+  //     </IonRouterOutlet>
+  //   </IonReactRouter>
+  // </IonApp>
+
+};
 
 export default App;
