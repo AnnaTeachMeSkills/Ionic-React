@@ -2,15 +2,17 @@ import React, { createElement } from 'react';
 import { IonList, IonItem, IonLabel, IonInput,IonPage, IonToggle, IonRadio, IonCheckbox, IonItemSliding, IonItemOption, IonItemOptions, IonContent } from '@ionic/react';
 import { useEffect,useState } from 'react';
 import { render } from '@testing-library/react';
+import { getElement } from 'ionicons/dist/types/stencil-public-runtime';
 
  const Apipage:  React.FC =  () =>  {
 
     const [state, setState] = useState({});
+    const [quote,setQuote] =useState()
 
      useEffect(  () => {
-        console.log("hello")
         async function getData() {
-            let response = await fetch('https://anapioficeandfire.com/api/characters/1');
+            let response = await fetch('http://www.boredapi.com/api/activity');
+            console.log(response)
             let result= await response.json()
             console.log(result);
             setState(result);
@@ -18,27 +20,22 @@ import { render } from '@testing-library/react';
         getData()
     }, [])
 
-    console.log(state)
-    let array:string[] = Object.values(state)
-    console.log(array)
-    console.log(array[0])
+    useEffect(() => {
+        let array:string[] = Object.values(state)
+        let quoteItem: any = array[0];
+        const item =() => {
+            setQuote(quoteItem)
+            console.log(quote)
+        return quote
+        }
+    item();
+    })
+        
       return (
         <IonPage>
             <IonList>
-                <IonItem>
-                    <IonLabel>{array[0]}</IonLabel>
-                </IonItem>
-                <IonItem>
-                    <IonLabel>Mega Man X</IonLabel>
-                </IonItem>
-                <IonItem>
-                    <IonLabel>The Legend of Zelda</IonLabel>
-                </IonItem>
-                <IonItem>
-                    <IonLabel>Pac-Man</IonLabel>
-                </IonItem>
-                <IonItem>
-                    <IonLabel>Super Mario World</IonLabel>
+                <IonItem >
+                    <IonLabel>{quote}</IonLabel>
                 </IonItem>
             </IonList>
 
@@ -49,14 +46,3 @@ import { render } from '@testing-library/react';
 
 export default Apipage;
 
-
-
-// array = Object.values(result)
-        // console.log(array)
-        // for(let el in result){
-        // //     console.log(el)
-        // //    console.log(array)
-        // //    array.push(el)
-        // //    console.log(array)
-
-        // }
