@@ -10,13 +10,9 @@ import Apipage from './Apipage'
 
 const Home: React.FC = () => {
 
-   
-
-
    return (
-  <div className="choose_button">Click to button Find activity!
+  <div className="choose_button">Click to button Fetch DATA!
   </div>
-  
    );
 };
 

@@ -3,6 +3,7 @@ import { IonList, IonItem, IonLabel, IonInput,IonPage, IonToggle, IonRadio, IonC
 import { useEffect,useState } from 'react';
 import { render } from '@testing-library/react';
 import { getElement } from 'ionicons/dist/types/stencil-public-runtime';
+import './Apipage.css'
 
  const Apipage:  React.FC =  () =>  {
 
@@ -11,22 +12,18 @@ import { getElement } from 'ionicons/dist/types/stencil-public-runtime';
      useEffect(  () => {
         async function getData() {
             let response = await fetch('https://www.breakingbadapi.com/api/characters');
-            console.log(response)
             let result= await response.json()
-            console.log(result);
             setState(result);
         }
         getData()
     }, [])
     
     let  Item:string[] = Object.values(state);
-    console.log(Item)
-
         
       return (
-        <IonContent>
+        <IonContent className="IonContent" >
       <IonList>
-        {Item.map((a:any) => (
+        {Item.map((a:any) =>  (
           <IonItem key={a}>
             <IonThumbnail slot="start">
               <IonImg src = {a.img} />

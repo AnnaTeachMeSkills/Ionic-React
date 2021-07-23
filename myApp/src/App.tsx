@@ -29,23 +29,18 @@ import { useState } from 'react';
 
 const App: React.FC = () => {
 
-  
-  
 return(
-  
   <div className="App">
      <BrowserRouter >
           <Route  exact path="/home" component={Home} />
           <Route exact path="/Apipage" component={Apipage} />
-          <Link className="main_link" to="/Apipage">Find random activity</Link>
-          <Link className="directionButton" to="/home">
+          <Link className="main_link" to="/Apipage">Fetch DATA</Link>
+          <Link className="home_button"  to="/home">
                 <div className="arrow arrow-left"></div>
           </Link>
       </BrowserRouter>
   </div>
 )
-
-
 };
 
 export default App;

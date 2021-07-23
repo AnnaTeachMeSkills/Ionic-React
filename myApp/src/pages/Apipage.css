@@ -1,5 +1,4 @@
-IonLabel {
-    font-size: 24px;
-    color: darkblue;
-    align-items: center;
+.IonContent{
+    top: 70px;
+
 }
