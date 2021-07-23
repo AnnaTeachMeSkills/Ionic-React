@@ -29,13 +29,7 @@ import { useState } from 'react';
 
 const App: React.FC = () => {
 
-  const [world,setWorld] = useState("Home")
-
-    if(document.URL === "http://localhost:8100/Apipage"){
-      console.log('Apipage')
-    } else if(document.URL === "http://localhost:8100/Apipage"){
-      console.log('Apipage')
-    } 
+  
   
 return(
   
@@ -43,8 +37,10 @@ return(
      <BrowserRouter >
           <Route  exact path="/home" component={Home} />
           <Route exact path="/Apipage" component={Apipage} />
-          <Link className="main_link" to="/Apipage" onClick ={()=>setWorld("Try again")}>Find activity</Link>
-          <Link className="homeButton main_link" to="/home">{world}</Link>
+          <Link className="main_link" to="/Apipage">Find random activity</Link>
+          <Link className="directionButton" to="/home">
+                <div className="arrow arrow-left"></div>
+          </Link>
       </BrowserRouter>
   </div>
 )

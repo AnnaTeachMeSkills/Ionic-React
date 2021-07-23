@@ -29,7 +29,7 @@ import { getElement } from 'ionicons/dist/types/stencil-public-runtime';
         return quote
         }
     item();
-    })
+    },[state])
         
       return (
         <IonPage>

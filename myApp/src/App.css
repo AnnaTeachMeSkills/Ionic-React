@@ -16,9 +16,26 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    height: 1000px;
+    height: 100%;
 }
 
-.none{
-    display: none;
+
+.arrow {
+    width: 30px;
+    height: 30px;
+    border-top: 5px solid cornflowerblue;
+    border-right: 5px solid cornflowerblue;
+    margin-right: 60px;
+} 
+
+
+.arrow-left {
+    transform: rotate(-135deg);
+}    
+
+
+.directionButton{
+    position: absolute;
+    left: 60px;
+
 }
